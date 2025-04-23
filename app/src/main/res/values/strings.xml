@@ -1,0 +1,23 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <string name="app_name">Harjoitustyö</string>
+
+    <!-- Navigaation otsikot -->
+    <string name="nav_home">Home</string>
+    <string name="nav_train">Train</string>
+    <string name="nav_battle">Battle</string>
+    <string name="nav_stats">Stats</string>
+    <string name="fight">Fight</string>
+    <string name="select_lutemon">Select Lutemon</string>
+
+
+    <!-- Muut jo olemassa olevat resurssit -->
+    <string-array name="lutemon_types">
+        <item>White</item>
+        <item>Green</item>
+        <item>Pink</item>
+        <item>Orange</item>
+        <item>Black</item>
+    </string-array>
+    <string name="lutemon_image">Lutemon image</string>
+</resources>

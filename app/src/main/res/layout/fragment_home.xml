@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 1) Valitse Lutemonin väri/tyyppi -->
+    <Spinner
+        android:id="@+id/spinType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- 2) Anna nimi -->
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name" />
+
+    <!-- 3) Luo uus Lutemon -->
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Lutemon" />
+
+    <!-- 4) Lista olemassa olevista Lutemoneista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLutemons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

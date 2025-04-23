@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Lutemon‐kuva tai oletusikoni -->
+    <ImageView
+        android:id="@+id/imgLutemon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/lutemon_image"
+        android:src="@android:drawable/ic_menu_help" />
+
+    <!-- Teksti‐sarakkeet: nimi ja statit -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/txtStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ATK:0 DEF:0 EXP:0" />
+
+    </LinearLayout>
+
+    <!-- HP‐palkki -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="50" />
+
+</LinearLayout>

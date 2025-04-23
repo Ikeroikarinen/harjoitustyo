@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Valitaan kaksi Lutemonia -->
+    <Spinner
+        android:id="@+id/spinA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/select_lutemon" />
+
+    <Spinner
+        android:id="@+id/spinB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/select_lutemon"
+        android:layout_marginTop="8dp" />
+
+    <!-- Taistelun käynnistysnappi -->
+    <Button
+        android:id="@+id/btnFight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fight"
+        android:layout_marginTop="16dp" />
+
+    <!-- Taistelu­loki TextView pystyruudussa skrollattavaksi -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#000" />
+    </ScrollView>
+
+</LinearLayout>

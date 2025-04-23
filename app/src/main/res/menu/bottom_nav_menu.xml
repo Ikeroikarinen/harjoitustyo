@@ -1,0 +1,22 @@
+<!-- res/menu/bottom_nav_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
+
+    <item
+        android:id="@+id/nav_train"
+        android:icon="@drawable/ic_fitness_center"
+        android:title="@string/nav_train" />
+
+    <item
+        android:id="@+id/nav_battle"
+        android:icon="@drawable/ic_sports_martial_arts"
+        android:title="@string/nav_battle" />
+
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/ic_show_chart"
+        android:title="@string/nav_stats" />
+</menu>
