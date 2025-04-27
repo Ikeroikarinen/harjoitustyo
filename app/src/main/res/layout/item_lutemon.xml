@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- Lutemon‐kuva tai oletusikoni -->
     <ImageView
         android:id="@+id/imgLutemon"
         android:layout_width="48dp"
@@ -13,7 +12,6 @@
         android:contentDescription="@string/lutemon_image"
         android:src="@android:drawable/ic_menu_help" />
 
-    <!-- Teksti‐sarakkeet: nimi ja statit -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginStart="12dp"
@@ -37,7 +35,6 @@
 
     </LinearLayout>
 
-    <!-- HP‐palkki -->
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"

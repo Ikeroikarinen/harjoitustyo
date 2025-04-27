@@ -16,19 +16,8 @@ public class LutemonViewModel extends AndroidViewModel {
         all  = repo.getAll();
     }
 
-    public LiveData<List<Lutemon>> getAll() {
-        return all;
-    }
-
-    public LiveData<Lutemon> getById(int id) {
-        return repo.getById(id);
-    }
-
-    public void insert(Lutemon l) {
-        repo.insert(l);
-    }
-
-    public void update(Lutemon l) {
-        repo.update(l);
-    }
+    public LiveData<List<Lutemon>> getAll() { return all; }
+    public LiveData<Lutemon> getById(int id) { return repo.getById(id); }
+    public void insert(Lutemon l) { repo.insert(l); }
+    public void update(Lutemon l) { repo.update(l); }
 }

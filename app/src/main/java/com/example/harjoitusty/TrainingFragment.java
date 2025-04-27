@@ -8,74 +8,67 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TrainingFragment extends Fragment {
-
     private LutemonViewModel vm;
     private Spinner spinType;
     private EditText etName;
     private Button btnAdd;
-    private ArrayAdapter<String> spinnerAdapter;
 
-    @Nullable @Override
+    @Nullable
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         View v = inflater.inflate(R.layout.fragment_training, container, false);
 
-        // 1) findViewById
         spinType = v.findViewById(R.id.spinLutemons);
         etName   = v.findViewById(R.id.etName);
         btnAdd   = v.findViewById(R.id.btnTrain);
 
-        // 2) ViewModel
+        String[] types = {"White", "Green", "Pink", "Orange", "Black"};
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<>(
+                requireContext(),
+                android.R.layout.simple_spinner_item,
+                types
+        );
+        typeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinType.setAdapter(typeAdapter);
+
         vm = new ViewModelProvider(requireActivity())
                 .get(LutemonViewModel.class);
 
-        // 3) Spinnerin adapter
-        spinnerAdapter = new ArrayAdapter<>(
-                requireContext(),
-                android.R.layout.simple_spinner_item,
-                new ArrayList<>()
-        );
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinType.setAdapter(spinnerAdapter);
-
-        // 4) Täytetään spinner LiveDatan avulla
-        vm.getAll().observe(getViewLifecycleOwner(), lutemons -> {
-            List<String> names = new ArrayList<>();
-            for (Lutemon l : lutemons) names.add(l.getName());
-            spinnerAdapter.clear();
-            spinnerAdapter.addAll(names);
-        });
-
-        // 5) Lisää-napin logiikka
-        btnAdd.setOnClickListener(view -> {
-            String type   = (String) spinType.getSelectedItem();
-            String name   = etName.getText().toString().trim();
-            if (!name.isEmpty()) {
-                // Luo uusi Lutemon olio (tässä esimerkkiarvot)
-                Lutemon newL = new Lutemon(
-                        name,
-                        getAttackForType(type),
-                        getDefenseForType(type),
-                        getMaxHpForType(type)
-                );
-                vm.insert(newL);
-                etName.setText("");
+        btnAdd.setOnClickListener(btn -> {
+            String type = (String) spinType.getSelectedItem();
+            String name = etName.getText().toString().trim();
+            if (name.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter a name", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            Lutemon newL = new Lutemon(
+                    name,
+                    getAttackForType(type),
+                    getDefenseForType(type),
+                    getMaxHpForType(type)
+            );
+            vm.insert(newL);
+            etName.setText("");
+            Toast.makeText(requireContext(),
+                    "Added " + type + " \"" + name + "\"",
+                    Toast.LENGTH_SHORT).show();
         });
 
         return v;
     }
 
-    // Esimerkkiavustajat: tyyppikohtaiset oletusarvot (voit säätää)
     private int getAttackForType(String type) {
         switch (type) {
             case "White":  return 5;
@@ -86,6 +79,7 @@ public class TrainingFragment extends Fragment {
             default:       return 5;
         }
     }
+
     private int getDefenseForType(String type) {
         switch (type) {
             case "White":  return 4;
@@ -96,6 +90,7 @@ public class TrainingFragment extends Fragment {
             default:       return 0;
         }
     }
+
     private int getMaxHpForType(String type) {
         switch (type) {
             case "White":  return 20;
